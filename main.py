@@ -8,5 +8,5 @@ if __name__ == '__main__':
     print_hi('main method')
     import tests.mainTests as mongo_test
 
-    mongo_test.test_mongo()
+    mongo_test.Test_mongo()
 
