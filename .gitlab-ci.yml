@@ -11,4 +11,4 @@ python_tests:
     script:
     - pip3 install pipenv
     - pipenv install
-    - python3 -m pytest
+    - pipenv run python3 -m pytest
