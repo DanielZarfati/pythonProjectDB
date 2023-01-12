@@ -6,8 +6,8 @@ default:
     - test
 
 
-  python_tests:
-    image:  python:3.9
+  build:
+    image: python:3.9
     stage: test
     script:
       - python3 -m pytest
