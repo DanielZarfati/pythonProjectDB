@@ -6,7 +6,7 @@ def print_hi(name):
 
 if __name__ == '__main__':
     print_hi('main method')
-    import db.test_main as mongo_test
+    import test_main as mongo_test
 
     mongo_test.test_mongo()
 
