@@ -5,7 +5,6 @@ default:
   stages:
     - test
 
-
   build:
     image: python:3.9
     stage: test
