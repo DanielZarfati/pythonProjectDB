@@ -32,7 +32,7 @@ def mongo_by_nbrtype(query_results):
                 dict_results[crr_vendor][tech]=[query_results[i]]
     print(dict_results)
 
-def Test_mongo():
+def test_mongo():
     connection = mongo_client.open_connection()
 
     # query = m_query.get_oss_and_sector("4", "NrSector")
