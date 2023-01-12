@@ -12,4 +12,4 @@ python_tests:
 
     - pip3 install pipenv
     - pipenv install
-    - python3 -m test_main
+    - python3 -m db/test_main.py
