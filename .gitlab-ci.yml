@@ -2,10 +2,10 @@ default:
   tags:
     - k8s-ci-generic
 
-  stages:
+stages:
     - test
 
-  python_tests:
+python_tests:
     image: python:3.9
     stage: test
     script:
