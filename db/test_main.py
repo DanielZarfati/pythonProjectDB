@@ -1,6 +1,7 @@
 import db.db_mongo as mongo_client
 import db.mongo_queries as m_query
 
+
 def mongo_by_vendor(query_results):
     vendor_list = ['ERICSSON', 'NOKIA', 'SAMSUNG', 'HUAWEI']
     tech_list = ['UtranSector', 'NrSector', 'LTESector', 'GsmSector']
@@ -13,13 +14,15 @@ def mongo_by_vendor(query_results):
                     dict_results[vendor] = {}
         for tech in tech_list:
             if tech in i and tech not in dict_results[crr_vendor]:
-                dict_results[crr_vendor][tech]=[query_results[i]]
+                dict_results[crr_vendor][tech] = [query_results[i]]
     print(dict_results)
 
 
 def mongo_by_nbrtype(query_results):
-    nbr_type = ['IRAT_LTE_NR', 'IRAT_LTE_UMTS', 'LTE_INTER', 'LTE_INTRA','SHO','NR_INTRA','NR_INTER','IRAT_NR_LTE','IFHO']
-    type_list = ['IRATNeighborLTENR', 'IRATNeighborLTEUMTS', 'LteSectorLevelNeighbor', 'LteSectorLevelNeighbor','UtranNeighbor','NrNeighborNrNr','NrNeighborNrNr','IRATNeighborNRLTE','UtranNeighbor']
+    nbr_type = ['IRAT_LTE_NR', 'IRAT_LTE_UMTS', 'LTE_INTER', 'LTE_INTRA', 'SHO', 'NR_INTRA', 'NR_INTER', 'IRAT_NR_LTE',
+                'IFHO']
+    type_list = ['IRATNeighborLTENR', 'IRATNeighborLTEUMTS', 'LteSectorLevelNeighbor', 'LteSectorLevelNeighbor',
+                 'UtranNeighbor', 'NrNeighborNrNr', 'NrNeighborNrNr', 'IRATNeighborNRLTE', 'UtranNeighbor']
     dict_results = {}
     for i in query_results:
         for vendor in nbr_type:
@@ -29,8 +32,9 @@ def mongo_by_nbrtype(query_results):
                     dict_results[vendor] = {}
         for tech in type_list:
             if tech in i and tech not in dict_results[crr_vendor]:
-                dict_results[crr_vendor][tech]=[query_results[i]]
+                dict_results[crr_vendor][tech] = [query_results[i]]
     print(dict_results)
+
 
 def test_mongo():
     connection = mongo_client.open_connection()
@@ -49,19 +53,17 @@ def test_mongo():
     # result = mongo_client.get_data_by_query(connection, query, projection)
     # result1 = mongo_client.get_data_by_query(connection, query1, projection1)
     result2 = mongo_client.get_aggregation_by_query(connection, query2)
-    result3 = mongo_client.get_aggregation_by_query(connection,query3)
-    result4 = mongo_client.get_aggregation_by_query(connection,query4)
-    result5 = mongo_client.get_aggregation_by_query(connection,query5)
-    result6 = mongo_client.get_aggregation_by_query(connection,query6)
-
+    result3 = mongo_client.get_aggregation_by_query(connection, query3)
+    result4 = mongo_client.get_aggregation_by_query(connection, query4)
+    result5 = mongo_client.get_aggregation_by_query(connection, query5)
+    result6 = mongo_client.get_aggregation_by_query(connection, query6)
 
     mongo_by_vendor(result2)
     mongo_by_vendor(result3)
     mongo_by_vendor(result4)
-    mongo_by_vendor(result5) #Should be empty
+    mongo_by_vendor(result5)  # Should be empty
     print(result6)
     mongo_by_nbrtype(result6)
-
 
     # TODO here - sql db
 

@@ -1,6 +1,5 @@
 import argparse
 import csv
-import itertools
 import datetime
 from conf import configuration
 from db import db_mongo
